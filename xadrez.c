@@ -16,17 +16,6 @@ void moverbisporecursivo(int casas){
   }
 }
 
-//BISPO ANINHADO
-void moverbispoaninhado(int casas){ 
-for(int i = 0; i < casas ; i++){      
-  for(int j = 0; j < casas; j++){
-    if (i == j) {
-      printf("Cima, Direita\n");
-   }
-  }
- }
-}
-
 //RAINHA
 void moverrainha(int casas){
   if (casas > 0){
@@ -47,7 +36,15 @@ int main() {
 
     // MOVER O BISPO CINCO CASAS NA DIAGONAL PARA CIMA E À DIREITA - ANINHADO
     printf("\nBispo Aninhado:\n");
-    moverbispoaninhado(5);
+    int bispo = 5;
+
+    for(int i = 0; i < bispo ; i++){      
+      for(int j = 0; j < bispo; j++){
+        if (i == j) {
+          printf("Cima, Direita\n");
+       }
+      }
+     }
 
     // MOVER A RAINHA OITO CASAS PARA A ESQUERDA
     printf("\nRainha:\n");
@@ -57,18 +54,23 @@ int main() {
     printf("\nCavalo:\n");
     int total_passos = 3; 
     
-    for (int passo = 1; passo <= total_passos; passo++) {
-        if (passo == 3) {
+    for (int passo = 1; passo <= total_passos; passo++){
+      if (passo == 3) {
             continue;  
-        }
+      }
         if (passo <= 2) {
             printf("Cima\n");
         }               
-        if (passo == 2) {
+          if (passo == 2) {
             printf("Direita\n");
             break;  
-        }
+          }
     }
   return 0;
 }     
+     
+     
+     
+     
+     
      
