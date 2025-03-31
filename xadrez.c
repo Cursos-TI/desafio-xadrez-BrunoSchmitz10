@@ -1,32 +1,74 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
-
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
-
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
-    return 0;
+//TORRE
+void movertorre(int casas){
+  if (casas > 0){
+    printf("Direita\n");
+    movertorre(casas - 1);
+  }
 }
+
+//BISPO RECURSIVO
+void moverbisporecursivo(int casas){
+  if (casas > 0){
+    printf("Cima, Direita\n");
+    moverbisporecursivo(casas - 1);
+  }
+}
+
+//BISPO ANINHADO
+void moverbispoaninhado(int casas){ 
+for(int i = 0; i < casas ; i++){      
+  for(int j = 0; j < casas; j++){
+    if (i == j) {
+      printf("Cima, Direita\n");
+   }
+  }
+ }
+}
+
+//RAINHA
+void moverrainha(int casas){
+  if (casas > 0){
+    printf("Esquerda\n");
+    moverrainha(casas - 1);
+  }
+}
+ 
+int main() {
+
+    // MOVER A TORRE 5 CASAS PARA A DIREITA
+    printf("\nTorre:\n");
+    movertorre(5);
+
+    // MOVER O BISPO CINCO CASAS NA DIAGONAL PARA CIMA E À DIREITA - RECURSIVO
+    printf("\nBispo Recursivo:\n");
+    moverbisporecursivo(5);
+
+    // MOVER O BISPO CINCO CASAS NA DIAGONAL PARA CIMA E À DIREITA - ANINHADO
+    printf("\nBispo Aninhado:\n");
+    moverbispoaninhado(5);
+
+    // MOVER A RAINHA OITO CASAS PARA A ESQUERDA
+    printf("\nRainha:\n");
+    moverrainha(8);
+
+    // MOVER O CAVALO 2 CASAS PARA CIMA E UMA PARA DIREITA - LOOPS COMPLEXOS
+    printf("\nCavalo:\n");
+    int total_passos = 3; 
+    
+    for (int passo = 1; passo <= total_passos; passo++) {
+        if (passo == 3) {
+            continue;  
+        }
+        if (passo <= 2) {
+            printf("Cima\n");
+        }               
+        if (passo == 2) {
+            printf("Direita\n");
+            break;  
+        }
+    }
+  return 0;
+}     
+     
